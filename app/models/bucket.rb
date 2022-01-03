@@ -7,5 +7,16 @@ class Bucket < ApplicationRecord
         end
     end
 
-    
+    def update_status
+        if self.tasks == []
+            self.status == "Empty"
+        elsif self.tasks.any?{|task| task.status == "Pending"}
+            self.status = "Pending"
+        else
+            self.status = "Completed"
+        end
+        self.save
+    end
+
+
 end
