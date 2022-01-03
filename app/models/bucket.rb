@@ -19,7 +19,7 @@ class Bucket < ApplicationRecord
     end
 
     def tasks_by_status(status)
-        self.task.select do |task|
+        self.tasks.select do |task|
             task.status == status
         end
     end
